@@ -1,0 +1,28 @@
+{
+    "version": 2,
+    "name": "mern-hello-world-new",
+    "builds": [
+        {
+            "src": "client/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "client/build"
+            },
+            "buildCommand": "cd client && npm install && npm run build"
+        },
+        {
+            "src": "server.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "/server.js"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/client/$1"
+        }
+    ]
+}
