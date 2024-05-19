@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "name": "mern-hello-world-new",
     "builds": [
         {
             "src": "client/package.json",
@@ -22,5 +23,6 @@
             "src": "/(.*)",
             "dest": "/client/$1"
         }
-    ]
+    ],
+    "buildCommand": "npm run build-client"
 }
